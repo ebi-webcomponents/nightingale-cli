@@ -1,0 +1,29 @@
+{
+  "name": "nightingale-cli",
+  "version": "1.0.0",
+  "description": "A CLI to create nightingale components",
+  "main": "index.js",
+  "bin": {
+    "nightingale-cli": "bin/nightingale-cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "nightingale",
+    "data-vis"
+  ],
+  "author": "Xavier Watkins <xwatkins@ebi.ac.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "ejs": "^3.0.1",
+    "esm": "^3.2.25",
+    "ncp": "^2.0.0",
+    "to-pascal-case": "^1.0.0"
+  }
+}
