@@ -2,15 +2,28 @@ import fs from "fs";
 import path from "path";
 import * as ejs from "ejs";
 import toPascalCase from "to-pascal-case";
+import inquirer from "inquirer";
+import chalk from "chalk";
 
 const CURR_DIR = process.cwd();
 
 export function cli(args) {
-  const projectName = "test-name";
+  const name = {
+    name: "project-name",
+    type: "input",
+    message: "Project name"
+  };
+
+  inquirer.prompt(name).then(answers => {
+    createProject(answers["project-name"]);
+  });
+}
+
+const createProject = projectName => {
   fs.mkdirSync(`${CURR_DIR}/${projectName}`);
   createDirectoryContents(path.join(__dirname, "../templates"), projectName);
-  console.log(`🐦${projectName} successfuly created.🐦`);
-}
+  console.log(chalk.green(`🐦${projectName} successfuly created.🐦`));
+};
 
 const createDirectoryContents = (
   templatePath,
